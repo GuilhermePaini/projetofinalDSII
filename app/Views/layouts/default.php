@@ -23,7 +23,7 @@
         </div>
     </nav>
     
-    <div class="container py-3 mt-5 bg-light bg-gradient">
+    <div class="container py-5 mt-5 bg-light bg-gradient">
         <?= $this->renderSection('content') ?>
     </div>
 </body>

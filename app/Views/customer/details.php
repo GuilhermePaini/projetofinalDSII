@@ -82,7 +82,7 @@
     </div>
     <script>
         function deleteCustomer() {
-            if(confirm('Are you sure you want to delete this customer?')) {
+            if(confirm('Are you sure you want to delete this customer and its dependents?')) {
                 document.getElementById('delete_customer').submit();
             }
             return false;

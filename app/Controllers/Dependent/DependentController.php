@@ -28,4 +28,22 @@ class DependentController extends BaseController
         session()->setFlashdata('error', $this->validator->getErrors());
         return redirect()->back();
     }
+    
+    public function delete() {
+
+        $validate = $this->validate([
+            'dependent_id' => 'required',
+        ]);
+
+        if($validate) {
+            $dependent_id = $this->request->getPost()['dependent_id'];
+            model(DependentModel::class)->delete($dependent_id);
+
+            session()->setFlashdata('success', 'Dependent deleted successfully!');
+            return redirect()->back();
+        }
+
+        session()->setFlashdata('error', $this->validator->getErrors());
+        return redirect()->back();
+    }
 }

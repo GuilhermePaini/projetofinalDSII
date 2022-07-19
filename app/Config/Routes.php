@@ -40,9 +40,14 @@ $routes->get('/home', 'Home::index');
 $routes->get('/index', 'Home::index');
 
 $routes->get('/customer/details/(:segment)', 'Customer\CustomerController::details/$1');
+$routes->get('/customer/create', 'Customer\CustomerController::create');
+
+$routes->post('/customer/create', 'Customer\CustomerController::save');
 $routes->post('/customer/update', 'Customer\CustomerController::update');
+$routes->post('/customer/delete', 'Customer\CustomerController::delete');
 
 $routes->post('/dependent/create', 'Dependent\DependentController::create');
+$routes->post('/dependent/delete', 'Dependent\DependentController::delete');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
