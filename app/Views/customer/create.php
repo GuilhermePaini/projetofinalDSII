@@ -7,20 +7,11 @@
     <h3>Cadastro de Cliente</h3>
     <form id="update_customer" action="<?php echo base_url('/customer/create'); ?>" method="post">
         <?= csrf_field() ?>
-        <div class="row px-3">
-            <?php if (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger" role="alert">
-                    <?php foreach (session()->getFlashdata('error') as $error) : ?>
-                        <li> <?= $error ?></li>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-            <?php if (session()->getFlashdata('success')): ?>
-                <div class="alert alert-success" role="alert">
-                    <span><?= session()->getFlashdata('success') ?></span>
-                </div>
-            <?php endif; ?>
-        </div>
+        
+        <!-- error handling view -->
+            <?= $this->include('error_alerts') ?>
+        <!--   -->
+
         <div class="row">
             <div class="mb-3 col-md-6 col-sm-12">
                 <label for="nome" class="form-label">Nome</label>
