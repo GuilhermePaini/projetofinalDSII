@@ -35,12 +35,18 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/home', 'Home::index');
-$routes->get('/index', 'Home::index');
 
-$routes->get('/customer/details/(:segment)', 'Customer\CustomerController::details/$1');
-$routes->get('/customer/create', 'Customer\CustomerController::create');
+$routes->get('/login', 'LoginController::index');
+$routes->get('/logout', 'LoginController::logout');
+
+$routes->post('/login', 'LoginController::login');
+
+$routes->get('/', 'Home::index', ['filter' => 'authGuard']);
+$routes->get('/home', 'Home::index', ['filter' => 'authGuard']);
+$routes->get('/index', 'Home::index', ['filter' => 'authGuard']);
+
+$routes->get('/customer/details/(:segment)', 'Customer\CustomerController::details/$1', ['filter' => 'authGuard']);
+$routes->get('/customer/create', 'Customer\CustomerController::create', ['filter' => 'authGuard']);
 
 $routes->post('/customer/create', 'Customer\CustomerController::save');
 $routes->post('/customer/update', 'Customer\CustomerController::update');

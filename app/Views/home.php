@@ -1,6 +1,7 @@
 <?= $this->extend('/layouts/default') ?>
 
 <?= $this->section('nav-right') ?>
+    <a href="<?= base_url('/logout') ?>">Logout</a>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>

@@ -27,7 +27,8 @@ class CustomerController extends BaseController
         $customer = $customer_model->find($id);
 
         if($customer == null) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Customer not found!");
+            session()->setFlashdata('error', ['Customer not found!']);
+            return redirect()->back();
         }
 
         $plan = $customer_model->getPlan($customer['tipo_plano']);

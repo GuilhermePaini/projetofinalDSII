@@ -2,7 +2,7 @@
     <?= $this->include('error_alerts') ?>
 <!--   -->
 <div class="d-flex justify-content-between">
-    <h3>Lista de clientes</h3>
+    <span class="fs-3">Lista de clientes</span>
     <a href="<?= base_url('/customer/create')?>" class="btn btn-success">
         Add Customer +
     </a>
@@ -10,7 +10,7 @@
 <hr>
 <table class="table table-striped table-hover">
     <thead>
-        <tr>
+        <tr class="fs-4">
             <th scope="col">Nome</th>
             <th scope="col">Plano</th>
             <th scope="col"></th>
@@ -23,7 +23,7 @@
                 <td><?= $plans[$customer['tipo_plano'] - 1]['tipo_plano'] ?></td>
                 <td class="d-flex flex-row justify-content-end">
                     <a href="<?= base_url('/customer/details/' . $customer['id'])?>" target="_blank" class="text-decoration-none me-3">
-                        <span class="material-symbols-outlined">
+                        <span class="material-symbols-outlined text-muted">
                             edit
                         </span>
                     </a>
@@ -31,7 +31,7 @@
                         <input type="hidden" name="customer_id" value="<?= $customer['id'] ?>" />
                     </form>
                     <a onclick="deleteCustomer('delete_customer_<?=$customer['id']?>')" type="button" class="me-3">
-                        <span class="material-symbols-outlined">
+                        <span class="material-symbols-outlined text-muted">
                             delete
                         </span>
                     </a>
